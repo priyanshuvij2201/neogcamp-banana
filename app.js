@@ -5,11 +5,23 @@ var txtInput = document.querySelector("#txt-input");
 
 var outputdiv = document.querySelector("#output");
 
-outputdiv.innerText = " Priyanshu Vij "
+var serverUrl="https://api.funtranslations.com/translate/minion.json"
+function getTranslateUrl(text){
+   return serverUrl + "?" + "text=" + text;
+}
 
-console.log(txtInput);
+function errorhandler(){
+   console.log("error occured");
+   alert("Something worng with server try again ");
+}
 
+function clickEventHandler(){
+   var inputtText=txtInput.value;
+   fetch(getTranslateUrl(inputtText))
+   .then(Response => Response.json())
+   .then(json => outputdiv.innerHTML=json.contents.translated)
+   .catch(errorhandler)
+}
+btnTranslate.addEventListener("click",clickEventHandler);
 
- btnTranslate.addEventListener("click",function clickEventHandler(){
-    outputdiv.innerText="asjasjjsjs" + txtInput.value;
- })
+   
