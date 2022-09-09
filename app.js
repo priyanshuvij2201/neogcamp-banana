@@ -2,9 +2,14 @@ var btnTranslate = document.querySelector("#btn-translate");
 
  
 var txtInput = document.querySelector("#txt-input");
+
+var outputdiv = document.querySelector("#output");
+
+outputdiv.innerText = " Priyanshu Vij "
+
 console.log(txtInput);
 
 
  btnTranslate.addEventListener("click",function clickEventHandler(){
- console.log("clicked!")
-console.log("input",txtInput.value)})
+    outputdiv.innerText="asjasjjsjs" + txtInput.value;
+ })
